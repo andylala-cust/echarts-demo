@@ -185,7 +185,21 @@ $.getJSON(uploadedDataURL, function(geoJson) {
                 }
             }
         },
-        series : [
+        series : [{
+            type: 'lines',
+            zLevel: 10,
+            silent: true,
+            animation: true,
+            animationDuration: 200,
+            lineStyle: {
+              normal: {
+                type: 'dashed',
+                width: 2,
+                color: '#fff',
+                opacity: 1
+              }
+            }
+          },
       {
          
             symbolSize: 5,
