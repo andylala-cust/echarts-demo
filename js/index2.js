@@ -1,4 +1,4 @@
-var uploadedDataURL = "/assets/data.json";
+var uploadedDataURL = "assets/data.json";
 var myChart = echarts.init(document.getElementById('canvas-wrapper'));
 myChart.showLoading();
 $.getJSON(uploadedDataURL, function(geoJson) {
