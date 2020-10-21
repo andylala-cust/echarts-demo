@@ -1,4 +1,7 @@
-(() => {
+var uploadedDataURL = "assets/data.json";
+
+$.getJSON(uploadedDataURL, function(geoJson) {
+  echarts.registerMap('china', geoJson);
   const options = {
     geo: [{
       map: 'china',
@@ -65,5 +68,4 @@
   mapInstance.setOption(options);
   console.timeEnd('setOption');
   mapInstance.resize();
-
-})();
+});
