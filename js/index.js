@@ -22,6 +22,7 @@
         normal: {
           areaColor: '#eee',
           borderColor: '#fff',
+          shadowBlur: 0,
           borderWidth: 1.5
         }
       },
@@ -44,7 +45,7 @@
       }
     }],
     visualMap: {
-      show: true,
+      show: false,
       type: 'piecewise',
       splitNumber: 3,
       pieces: [{
@@ -60,7 +61,9 @@
     }
   };
   const mapInstance = echarts.init(document.getElementById('canvas-wrapper'));
+  console.time('setOption');
   mapInstance.setOption(options);
+  console.timeEnd('setOption');
   mapInstance.resize();
 
 })();
