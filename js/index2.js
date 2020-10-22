@@ -189,5 +189,7 @@ $.getJSON(uploadedDataURL, function(geoJson) {
             // }
         ]
     };
+    console.time('setOption');
     myChart.setOption(option);
+    console.timeEnd('setOption');
 });
