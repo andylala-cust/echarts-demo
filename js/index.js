@@ -101,73 +101,73 @@ var convertData = function (data) {
 };
 
 console.log('convertData', convertData(mapData));
-alert(window.JSON.stringify(convertData(mapData)));
 
-// $.getJSON(uploadedDataURL, function(geoJson) {
-//   echarts.registerMap('china', geoJson);
-//   var options = {
-//     geo: [{
-//       map: 'china',
-//       roam: 'move',
-//       zoom: 3,
-//       scaleLimit: {
-//         min: 3,
-//         max: 3,
-//       },
-//       selectedMode: 'single',
-//       center: [110.076, 32.384],
-//       label: {
-//         normal: {
-//           show: true,
-//           textStyle: {
-//             color: '#000'
-//           }
-//         }
-//       },
-//       itemStyle: {
-//         normal: {
-//           areaColor: '#e8eff8',
-//           borderColor: '#fff',
-//           borderWidth: 1.5
-//         }
-//       },
-//       showLegendSymbol: false,
-//       regions: colorData(mapData)
-//     }],
-//     series: [{
-//       type: 'lines',
-//       zLevel: 10,
-//       silent: true,
-//       animation: true,
-//       animationDuration: 200,
-//       lineStyle: {
-//         normal: {
-//           type: 'dashed',
-//           width: 2,
-//           color: '#fff',
-//           opacity: 1
-//         }
-//       }
-//     }],
-//     visualMap: {
-//       show: false,
-//       type: 'piecewise',
-//       splitNumber: 3,
-//       pieces: [{
-//         min: 0,
-//         color: 'red',
-//       }, {
-//         max: 0,
-//         color: 'green'
-//       }, {
-//         value: 0,
-//         color: 'blue'
-//       }]
-//     }
-//   };
-//   var mapInstance = echarts.init(document.getElementById('canvas-wrapper'));
-//   console.time('setOption');
-//   mapInstance.setOption(options);
-//   console.timeEnd('setOption');
-//   mapInstance.resize();
-// });
+$.getJSON(uploadedDataURL, function(geoJson) {
+  alert('geoJson');
+  echarts.registerMap('china', geoJson);
+  var options = {
+    geo: [{
+      map: 'china',
+      roam: 'move',
+      zoom: 3,
+      scaleLimit: {
+        min: 3,
+        max: 3,
+      },
+      selectedMode: 'single',
+      center: [110.076, 32.384],
+      label: {
+        normal: {
+          show: true,
+          textStyle: {
+            color: '#000'
+          }
+        }
+      },
+      itemStyle: {
+        normal: {
+          areaColor: '#e8eff8',
+          borderColor: '#fff',
+          borderWidth: 1.5
+        }
+      },
+      showLegendSymbol: false,
+      regions: colorData(mapData)
+    }],
+    series: [{
+      type: 'lines',
+      zLevel: 10,
+      silent: true,
+      animation: true,
+      animationDuration: 200,
+      lineStyle: {
+        normal: {
+          type: 'dashed',
+          width: 2,
+          color: '#fff',
+          opacity: 1
+        }
+      }
+    }],
+    visualMap: {
+      show: false,
+      type: 'piecewise',
+      splitNumber: 3,
+      pieces: [{
+        min: 0,
+        color: 'red',
+      }, {
+        max: 0,
+        color: 'green'
+      }, {
+        value: 0,
+        color: 'blue'
+      }]
+    }
+  };
+  var mapInstance = echarts.init(document.getElementById('canvas-wrapper'));
+  console.time('setOption');
+  mapInstance.setOption(options);
+  console.timeEnd('setOption');
+  mapInstance.resize();
+});
