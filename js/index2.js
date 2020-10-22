@@ -142,7 +142,10 @@ $.getJSON(uploadedDataURL, function(geoJson) {
             },
             regions: colorData(data)
         },
-        series: []
+        series: [{
+            type: 'custom',
+            coordinateSystem: 'geo'
+        }]
     };
     console.time('setOption');
     myChart.setOption(option);
