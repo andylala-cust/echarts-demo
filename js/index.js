@@ -46,12 +46,12 @@ var mapData = [
   {name:"上海",value:-24},
   {name:"江苏",value:92},
   {name:"浙江",value:114},
-  {name:"安徽",value:109},
+  // {name:"安徽",value:109},
   {name:"福建",value:116},
   {name:"江西",value:91},
   {name:"山东",value:119},
   {name:"河南",value:137},
-  {name:"湖北",value:116},
+  // {name:"湖北",value:116},
   {name:"湖南",value:114},
   {name:"重庆",value:91},
   {name:"四川",value:125},
@@ -59,7 +59,7 @@ var mapData = [
   {name:"云南",value:0},
   {name:"西藏",value:0},
   {name:"陕西",value:0},
-  {name:"甘肃",value:0},
+  // {name:"甘肃",value:0},
   {name:"青海",value:0},
   {name:"宁夏",value:0},
   {name:"新疆",value:0},
@@ -103,7 +103,6 @@ var convertData = function (data) {
 console.log('convertData', convertData(mapData));
 
 $.getJSON(uploadedDataURL, function(geoJson) {
-  alert('geoJson');
   echarts.registerMap('china', geoJson);
   var options = {
     geo: [{
@@ -131,10 +130,38 @@ $.getJSON(uploadedDataURL, function(geoJson) {
           borderWidth: 1.5
         }
       },
-      showLegendSymbol: false,
-      regions: colorData(mapData)
+      showLegendSymbol: false
     }],
     series: [{
+        type: 'map',
+        map: 'china',
+        geoIndex: 0,
+        aspectScale: 0.75, //长宽比
+        showLegendSymbol: false, // 存在legend时显示
+        label: {
+            normal: {
+                show: false
+            },
+            emphasis: {
+                show: false,
+                textStyle: {
+                    color: '#fff'
+                }
+            }
+        },
+        roam: true,
+        itemStyle: {
+            normal: {
+                areaColor: '#031525',
+                borderColor: '#FFFFFF',
+            },
+            emphasis: {
+                areaColor: '#2B91B7'
+            }
+        },
+        animation: false,
+        data: colorData(mapData)
+    }, {
       type: 'lines',
       zLevel: 10,
       silent: true,
@@ -155,13 +182,13 @@ $.getJSON(uploadedDataURL, function(geoJson) {
       splitNumber: 3,
       pieces: [{
         min: 0,
-        color: 'red',
+        color: '#f06f6f',
       }, {
         max: 0,
-        color: 'green'
+        color: '#4db84d'
       }, {
         value: 0,
-        color: 'blue'
+        color: '#7eb2f3'
       }]
     }
   };
