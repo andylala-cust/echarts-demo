@@ -67,107 +67,107 @@ var mapData = [
   {name:"广西",value:0},
   {name:"海南",value:0},
 ];
+alert('hello')
+// var colorData = function(data) {
+//   var res = [];
+//   for (var i = 0; i < data.length; i++) {
+//     res.push({
+//       name: data[i].name,
+//       value: data[i].value,
+//       itemStyle: {
+//         normal: {
+//           areaColor: data[i].value > 0 ? '#f06f6f' : (data[i].value < 0 ? '#4db84d' : '#7eb2f3')
+//         },
+//         emphasis: {
+//           areaColor: data[i].value > 0 ? '#f06f6f' : (data[i].value < 0 ? '#4db84d' : '#7eb2f3')
+//         }
+//       }
+//     });
+//   }
+//   return res;
+// }
 
-var colorData = function(data) {
-  var res = [];
-  for (var i = 0; i < data.length; i++) {
-    res.push({
-      name: data[i].name,
-      value: data[i].value,
-      itemStyle: {
-        normal: {
-          areaColor: data[i].value > 0 ? '#f06f6f' : (data[i].value < 0 ? '#4db84d' : '#7eb2f3')
-        },
-        emphasis: {
-          areaColor: data[i].value > 0 ? '#f06f6f' : (data[i].value < 0 ? '#4db84d' : '#7eb2f3')
-        }
-      }
-    });
-  }
-  return res;
-}
+// var convertData = function (data) {
+//   var res = [];
+//   for (var i = 0; i < data.length; i++) {
+//       var geoCoord = geoCoordMap[data[i].name];
+//       if (geoCoord) {
+//           res.push({
+//               name: data[i].name,
+//               value: geoCoord.concat(data[i].value)
+//           });
+//       }
+//   }
+//   return res;
+// };
 
-var convertData = function (data) {
-  var res = [];
-  for (var i = 0; i < data.length; i++) {
-      var geoCoord = geoCoordMap[data[i].name];
-      if (geoCoord) {
-          res.push({
-              name: data[i].name,
-              value: geoCoord.concat(data[i].value)
-          });
-      }
-  }
-  return res;
-};
+// console.log('convertData', convertData(mapData));
 
-console.log('convertData', convertData(mapData));
-
-$.getJSON(uploadedDataURL, function(geoJson) {
-  echarts.registerMap('china', geoJson);
-  var options = {
-    geo: [{
-      map: 'china',
-      roam: 'move',
-      zoom: 3,
-      scaleLimit: {
-        min: 3,
-        max: 3,
-      },
-      selectedMode: 'single',
-      center: [110.076, 32.384],
-      label: {
-        normal: {
-          show: true,
-          textStyle: {
-            color: '#000'
-          }
-        }
-      },
-      itemStyle: {
-        normal: {
-          areaColor: '#e8eff8',
-          borderColor: '#fff',
-          borderWidth: 1.5
-        }
-      },
-      showLegendSymbol: false,
-      regions: colorData(mapData)
-    }],
-    series: [{
-      type: 'lines',
-      zLevel: 10,
-      silent: true,
-      animation: true,
-      animationDuration: 200,
-      lineStyle: {
-        normal: {
-          type: 'dashed',
-          width: 2,
-          color: '#fff',
-          opacity: 1
-        }
-      }
-    }],
-    visualMap: {
-      show: false,
-      type: 'piecewise',
-      splitNumber: 3,
-      pieces: [{
-        min: 0,
-        color: 'red',
-      }, {
-        max: 0,
-        color: 'green'
-      }, {
-        value: 0,
-        color: 'blue'
-      }]
-    }
-  };
-  var mapInstance = echarts.init(document.getElementById('canvas-wrapper'));
-  console.time('setOption');
-  mapInstance.setOption(options);
-  console.timeEnd('setOption');
-  mapInstance.resize();
-});
+// $.getJSON(uploadedDataURL, function(geoJson) {
+//   echarts.registerMap('china', geoJson);
+//   var options = {
+//     geo: [{
+//       map: 'china',
+//       roam: 'move',
+//       zoom: 3,
+//       scaleLimit: {
+//         min: 3,
+//         max: 3,
+//       },
+//       selectedMode: 'single',
+//       center: [110.076, 32.384],
+//       label: {
+//         normal: {
+//           show: true,
+//           textStyle: {
+//             color: '#000'
+//           }
+//         }
+//       },
+//       itemStyle: {
+//         normal: {
+//           areaColor: '#e8eff8',
+//           borderColor: '#fff',
+//           borderWidth: 1.5
+//         }
+//       },
+//       showLegendSymbol: false,
+//       regions: colorData(mapData)
+//     }],
+//     series: [{
+//       type: 'lines',
+//       zLevel: 10,
+//       silent: true,
+//       animation: true,
+//       animationDuration: 200,
+//       lineStyle: {
+//         normal: {
+//           type: 'dashed',
+//           width: 2,
+//           color: '#fff',
+//           opacity: 1
+//         }
+//       }
+//     }],
+//     visualMap: {
+//       show: false,
+//       type: 'piecewise',
+//       splitNumber: 3,
+//       pieces: [{
+//         min: 0,
+//         color: 'red',
+//       }, {
+//         max: 0,
+//         color: 'green'
+//       }, {
+//         value: 0,
+//         color: 'blue'
+//       }]
+//     }
+//   };
+//   var mapInstance = echarts.init(document.getElementById('canvas-wrapper'));
+//   console.time('setOption');
+//   mapInstance.setOption(options);
+//   console.timeEnd('setOption');
+//   mapInstance.resize();
+// });
