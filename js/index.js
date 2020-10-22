@@ -166,5 +166,4 @@ $.getJSON(uploadedDataURL, function(geoJson) {
   mapInstance.setOption(options);
   console.timeEnd('setOption');
   mapInstance.resize();
-  alert('end');
 });
