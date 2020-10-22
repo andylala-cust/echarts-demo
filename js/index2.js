@@ -73,6 +73,26 @@ $.getJSON(uploadedDataURL, function(geoJson) {
         {name:"广西",value:0},
         {name:"海南",value:0},
       ];
+
+    var colorData = function(data) {
+        var res = [];
+        for (var i = 0; i < data.length; i++) {
+            res.push({
+                name: data[i].name,
+                value: data[i].value,
+                itemStyle: {
+                    normal: {
+                        areaColor: data[i].value > 0 ? '#f06f6f' : (data[i].value < 0 ? '#4db84d' : '#7eb2f3')
+                    },
+                    emphasis: {
+                        areaColor: data[i].value > 0 ? '#f06f6f' : (data[i].value < 0 ? '#4db84d' : '#7eb2f3')
+                    }
+                }
+            });
+        }
+        return res;
+    }
+
     var convertData = function(data) {
         var res = [];
         for (var i = 0; i < data.length; i++) {
@@ -149,7 +169,12 @@ $.getJSON(uploadedDataURL, function(geoJson) {
                     areaColor: '#e8eff8',
                     borderColor: '#fff',
                     borderWidth: 1.5
-                }
+                }, 
+                // normal: {
+                //     areaColor: '#e8eff8',
+                //     borderColor: '#fff',
+                //     borderWidth: 1.5
+                // }
             },
         },
         series: [
@@ -182,7 +207,21 @@ $.getJSON(uploadedDataURL, function(geoJson) {
                 },
                 animation: false,
                 data: data
-            },
+            }, {
+                type: 'lines',
+                zLevel: 10,
+                silent: true,
+                animation: true,
+                animationDuration: 200,
+                lineStyle: {
+                    normal: {
+                    type: 'dashed',
+                    width: 2,
+                    color: '#fff',
+                    opacity: 1
+                    }
+                }
+            }
         ]
     };
     myChart.setOption(option);
