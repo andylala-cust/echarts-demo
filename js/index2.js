@@ -320,38 +320,6 @@ $.getJSON(uploadedDataURL, function(geoJson) {
                 animation: false,
                 data: data
             },
-            {
-                name: 'Top 5',
-                type: 'scatter',
-                coordinateSystem: 'geo',
-                symbol: 'pin',
-                symbolSize: [50, 50],
-                label: {
-                    normal: {
-                        show: true,
-                        textStyle: {
-                            color: '#fff',
-                            fontSize: 9,
-                        },
-                        formatter(value) {
-                            return value.data.value[2]
-                        }
-                    }
-                },
-                itemStyle: {
-                    normal: {
-                        color: '#D8BC37', //标志颜色
-                    }
-                },
-                data: convertData(data),
-                showEffectOn: 'render',
-                rippleEffect: {
-                    brushType: 'stroke'
-                },
-                hoverAnimation: true,
-                zlevel: 1
-            },
-
         ]
     };
     myChart.setOption(option);
