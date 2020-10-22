@@ -69,18 +69,22 @@ var mapData = [
 ];
 
 var colorData = function(data) {
-  return data.map(item => ({
-    name: item.name,
-    value: item.value,
-    itemStyle: {
-      normal: {
-        areaColor: item.value > 0 ? '#f06f6f' : (item.value < 0 ? '#4db84d' : '#7eb2f3')
-      },
-      emphasis: {
-        areaColor: item.value > 0 ? '#f06f6f' : (item.value < 0 ? '#4db84d' : '#7eb2f3')
+  var res = [];
+  for (var i = 0; i < data.length; i++) {
+    res.push({
+      name: data[i].name,
+      value: data[i].value,
+      itemStyle: {
+        normal: {
+          areaColor: data[i].value > 0 ? '#f06f6f' : (data[i].value < 0 ? '#4db84d' : '#7eb2f3')
+        },
+        emphasis: {
+          areaColor: data[i].value > 0 ? '#f06f6f' : (data[i].value < 0 ? '#4db84d' : '#7eb2f3')
+        }
       }
-    }
-  }))
+    });
+  }
+  return res;
 }
 
 var convertData = function (data) {
