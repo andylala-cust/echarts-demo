@@ -93,20 +93,6 @@ $.getJSON(uploadedDataURL, function(geoJson) {
         return res;
     }
 
-    var convertData = function(data) {
-        var res = [];
-        for (var i = 0; i < data.length; i++) {
-            var geoCoord = geoCoordMap[data[i].name];
-            if (geoCoord) {
-                res.push({
-                    name: data[i].name,
-                    value: geoCoord.concat(data[i].value)
-                });
-            }
-        }
-        return res;
-    };
-
     option = {
         visualMap: {
             show: false,
@@ -156,38 +142,21 @@ $.getJSON(uploadedDataURL, function(geoJson) {
             },
             regions: colorData(data)
         },
-        series: [
-            // {
-            //     type: 'map',
-            //     map: 'china',
-            //     geoIndex: 0,
-            //     aspectScale: 0.75, //长宽比
-            //     showLegendSymbol: false, // 存在legend时显示
-            //     label: {
-            //         normal: {
-            //             show: false
-            //         },
-            //         emphasis: {
-            //             show: false,
-            //             textStyle: {
-            //                 color: '#fff'
-            //             }
-            //         }
-            //     },
-            //     roam: true,
-            //     itemStyle: {
-            //         normal: {
-            //             areaColor: '#031525',
-            //             borderColor: '#FFFFFF',
-            //         },
-            //         emphasis: {
-            //             areaColor: '#2B91B7'
-            //         }
-            //     },
-            //     animation: false,
-            //     data: data
+        series: [{
+            type: 'lines',
+            // zLevel: 10,
+            // silent: true,
+            // animation: true,
+            // animationDuration: 200,
+            // lineStyle: {
+            //   normal: {
+            //     type: 'dashed',
+            //     width: 2,
+            //     color: '#fff',
+            //     opacity: 1
+            //   }
             // }
-        ]
+        }]
     };
     console.time('setOption');
     myChart.setOption(option);
