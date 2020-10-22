@@ -248,10 +248,10 @@ $.getJSON(uploadedDataURL, function(geoJson) {
             },
             label: {
                 normal: {
-                    show: false
+                    show: true
                 },
                 emphasis: {
-                    show: false,
+                    show: true,
                 }
             },
             itemStyle: {
@@ -266,30 +266,29 @@ $.getJSON(uploadedDataURL, function(geoJson) {
                 }
             }
         },
-        series: [{
-
-                symbolSize: 5,
-                label: {
-                    normal: {
-                        formatter: '{b}',
-                        position: 'right',
-                        show: true
-                    },
-                    emphasis: {
-                        show: true
-                    }
-                },
-                itemStyle: {
-                    normal: {
-                        color: '#fff'
-                    }
-                },
-                name: 'light',
-                type: 'scatter',
-                coordinateSystem: 'geo',
-                data: convertData(data),
-
-            },
+        series: [
+            // {
+            //     symbolSize: 5,
+            //     label: {
+            //         normal: {
+            //             formatter: '{b}',
+            //             position: 'right',
+            //             show: true
+            //         },
+            //         emphasis: {
+            //             show: true
+            //         }
+            //     },
+            //     itemStyle: {
+            //         normal: {
+            //             color: '#fff'
+            //         }
+            //     },
+            //     name: 'light',
+            //     type: 'scatter',
+            //     coordinateSystem: 'geo',
+            //     data: convertData(data),
+            // },
             {
                 type: 'map',
                 map: 'china',
