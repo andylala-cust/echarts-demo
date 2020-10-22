@@ -108,30 +108,6 @@ $.getJSON(uploadedDataURL, function(geoJson) {
     };
 
     option = {
-        backgroundColor: {
-            type: 'linear',
-            x: 0,
-            y: 0,
-            x2: 1,
-            y2: 1,
-            colorStops: [{
-                offset: 0,
-                color: '#0f378f' // 0% 处的颜色
-            }, {
-                offset: 1,
-                color: '#00091a' // 100% 处的颜色
-            }],
-            globalCoord: false // 缺省为 false
-        },
-        legend: {
-            orient: 'vertical',
-            y: 'bottom',
-            x: 'right',
-            data: ['pm2.5'],
-            textStyle: {
-                color: '#fff'
-            }
-        },
         visualMap: {
             show: false,
             type: 'piecewise',
@@ -149,7 +125,6 @@ $.getJSON(uploadedDataURL, function(geoJson) {
         },
         geo: {
             map: 'china',
-            show: true,
             roam: 'move',
             zoom: 3,
             scaleLimit: {
@@ -173,7 +148,7 @@ $.getJSON(uploadedDataURL, function(geoJson) {
                     borderColor: '#fff',
                     borderWidth: 1.5
                 }, 
-                normal: {
+                emphasis: {
                     areaColor: '#e8eff8',
                     borderColor: '#fff',
                     borderWidth: 1.5
