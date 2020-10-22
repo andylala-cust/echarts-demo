@@ -1,4 +1,4 @@
-alert('start');
+(function() {alert('start');} )();
 var uploadedDataURL = "assets/data.json";
 var geoCoordMap = {
   '台湾': [121.5135,25.0308],
