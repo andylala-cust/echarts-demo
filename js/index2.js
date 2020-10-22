@@ -195,26 +195,6 @@ $.getJSON(uploadedDataURL, function(geoJson) {
             }],
             globalCoord: false // 缺省为 false
         },
-        title: {
-            top: 20,
-            text: '“会员活跃度” - 山东省',
-            subtext: '',
-            x: 'center',
-            textStyle: {
-                color: '#ccc'
-            }
-        },
-
-        tooltip: {
-            trigger: 'item',
-            formatter: function(params) {
-                if (typeof(params.value)[2] == "undefined") {
-                    return params.name + ' : ' + params.value;
-                } else {
-                    return params.name + ' : ' + params.value[2];
-                }
-            }
-        },
         legend: {
             orient: 'vertical',
             y: 'bottom',
@@ -256,39 +236,13 @@ $.getJSON(uploadedDataURL, function(geoJson) {
             },
             itemStyle: {
                 normal: {
-                    areaColor: '#3a7fd5',
-                    borderColor: '#0a53e9', //线
-                    shadowColor: '#092f8f', //外发光
-                    shadowBlur: 20
-                },
-                emphasis: {
-                    areaColor: '#0a2dae', //悬浮区背景
+                    areaColor: '#e8eff8',
+                    borderColor: '#fff',
+                    borderWidth: 1.5
                 }
-            }
+            },
         },
         series: [
-            // {
-            //     symbolSize: 5,
-            //     label: {
-            //         normal: {
-            //             formatter: '{b}',
-            //             position: 'right',
-            //             show: true
-            //         },
-            //         emphasis: {
-            //             show: true
-            //         }
-            //     },
-            //     itemStyle: {
-            //         normal: {
-            //             color: '#fff'
-            //         }
-            //     },
-            //     name: 'light',
-            //     type: 'scatter',
-            //     coordinateSystem: 'geo',
-            //     data: convertData(data),
-            // },
             {
                 type: 'map',
                 map: 'china',
