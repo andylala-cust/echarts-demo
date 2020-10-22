@@ -142,23 +142,25 @@ $.getJSON(uploadedDataURL, function(geoJson) {
             },
             regions: colorData(data)
         },
-        series: [{
-            type: 'lines',
-            silent: true,
-            lineStyle: {
-                normal: {
-                    type: 'dashed',
-                    width: 2,
-                    color: '#fff',
-                    opacity: 1
-                }
-            },
-            data: [{
-                coords: [[114.31, 30.52], [112.53, 37.87]],
-                fromName: '湖北',
-                toName: '山西'
-            }]
-        }]
+        series: [
+            // {
+            //     type: 'lines',
+            //     silent: true,
+            //     lineStyle: {
+            //         normal: {
+            //             type: 'dashed',
+            //             width: 2,
+            //             color: '#fff',
+            //             opacity: 1
+            //         }
+            //     },
+            //     data: [{
+            //         coords: [[114.31, 30.52], [112.53, 37.87]],
+            //         fromName: '湖北',
+            //         toName: '山西'
+            //     }]
+            // }
+        ]
     };
     console.time('setOption');
     myChart.setOption(option);
