@@ -156,6 +156,8 @@ $.getJSON(uploadedDataURL, function(geoJson) {
               min: 3,
               max: 3,
             },
+            selectedMode: 'single',
+            center: [110.076, 32.384],
             label: {
                 normal: {
                     show: true
@@ -164,6 +166,7 @@ $.getJSON(uploadedDataURL, function(geoJson) {
                     show: true,
                 }
             },
+            showLegendSymbol: false,
             itemStyle: {
                 normal: {
                     areaColor: '#e8eff8',
