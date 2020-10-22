@@ -85,23 +85,23 @@ var colorData = function(data) {
   }
   return res;
 }
-alert('hello2');
 
-// var convertData = function (data) {
-//   var res = [];
-//   for (var i = 0; i < data.length; i++) {
-//       var geoCoord = geoCoordMap[data[i].name];
-//       if (geoCoord) {
-//           res.push({
-//               name: data[i].name,
-//               value: geoCoord.concat(data[i].value)
-//           });
-//       }
-//   }
-//   return res;
-// };
+var convertData = function (data) {
+  var res = [];
+  for (var i = 0; i < data.length; i++) {
+      var geoCoord = geoCoordMap[data[i].name];
+      if (geoCoord) {
+          res.push({
+              name: data[i].name,
+              value: geoCoord.concat(data[i].value)
+          });
+      }
+  }
+  return res;
+};
 
-// console.log('convertData', convertData(mapData));
+console.log('convertData', convertData(mapData));
+alert(window.JSON.stringify(convertData(mapData)));
 
 // $.getJSON(uploadedDataURL, function(geoJson) {
 //   echarts.registerMap('china', geoJson);
