@@ -1,3 +1,4 @@
+alert('start');
 var uploadedDataURL = "assets/data.json";
 var geoCoordMap = {
   '台湾': [121.5135,25.0308],
@@ -165,4 +166,5 @@ $.getJSON(uploadedDataURL, function(geoJson) {
   mapInstance.setOption(options);
   console.timeEnd('setOption');
   mapInstance.resize();
+  alert('end');
 });
