@@ -67,25 +67,25 @@ var mapData = [
   {name:"广西",value:0},
   {name:"海南",value:0},
 ];
-alert('hello')
-// var colorData = function(data) {
-//   var res = [];
-//   for (var i = 0; i < data.length; i++) {
-//     res.push({
-//       name: data[i].name,
-//       value: data[i].value,
-//       itemStyle: {
-//         normal: {
-//           areaColor: data[i].value > 0 ? '#f06f6f' : (data[i].value < 0 ? '#4db84d' : '#7eb2f3')
-//         },
-//         emphasis: {
-//           areaColor: data[i].value > 0 ? '#f06f6f' : (data[i].value < 0 ? '#4db84d' : '#7eb2f3')
-//         }
-//       }
-//     });
-//   }
-//   return res;
-// }
+var colorData = function(data) {
+  var res = [];
+  for (var i = 0; i < data.length; i++) {
+    res.push({
+      name: data[i].name,
+      value: data[i].value,
+      itemStyle: {
+        normal: {
+          areaColor: data[i].value > 0 ? '#f06f6f' : (data[i].value < 0 ? '#4db84d' : '#7eb2f3')
+        },
+        emphasis: {
+          areaColor: data[i].value > 0 ? '#f06f6f' : (data[i].value < 0 ? '#4db84d' : '#7eb2f3')
+        }
+      }
+    });
+  }
+  return res;
+}
+alert('hello2');
 
 // var convertData = function (data) {
 //   var res = [];
