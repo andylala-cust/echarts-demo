@@ -1,4 +1,3 @@
-(function() {alert('start');} )();
 var uploadedDataURL = "assets/data.json";
 var geoCoordMap = {
   '台湾': [121.5135,25.0308],
@@ -71,7 +70,8 @@ var mapData = [
 
 var colorData = function(data) {
   return data.map(item => ({
-    ...item,
+    name: item.name,
+    value: item.value,
     itemStyle: {
       normal: {
         areaColor: item.value > 0 ? '#f06f6f' : (item.value < 0 ? '#4db84d' : '#7eb2f3')
