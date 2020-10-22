@@ -164,10 +164,6 @@ $.getJSON(uploadedDataURL, function(geoJson) {
             value: 14
         },
     ];
-    var max = 480,
-        min = 9; // todo 
-    var maxSize4Pin = 100,
-        minSize4Pin = 20;
 
     var convertData = function(data) {
         var res = [];
@@ -182,8 +178,6 @@ $.getJSON(uploadedDataURL, function(geoJson) {
         }
         return res;
     };
-
-
 
     option = {
         backgroundColor: {
@@ -221,15 +215,6 @@ $.getJSON(uploadedDataURL, function(geoJson) {
                 }
             }
         },
-        /*   legend: {
-               orient: 'vertical',
-               y: 'bottom',
-               x: 'right',
-                data:['pm2.5'],
-               textStyle: {
-                   color: '#fff'
-               }
-           },*/
         legend: {
             orient: 'vertical',
             y: 'bottom',
@@ -255,7 +240,12 @@ $.getJSON(uploadedDataURL, function(geoJson) {
         geo: {
             map: 'china',
             show: true,
-            roam: true,
+            roam: 'move',
+            zoom: 3,
+            scaleLimit: {
+              min: 3,
+              max: 3,
+            },
             label: {
                 normal: {
                     show: false
