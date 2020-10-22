@@ -149,7 +149,7 @@ $.getJSON(uploadedDataURL, function(geoJson) {
                 }
             }
         },
-        roam: true,
+        roam: 'move',
         itemStyle: {
             normal: {
                 areaColor: '#031525',

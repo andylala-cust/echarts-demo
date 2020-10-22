@@ -40,109 +40,75 @@ $.getJSON(uploadedDataURL, function(geoJson) {
         
     };
     var data = [
-        {name:"北京",value:199},
-    {name:"天津",value:42},
-    {name:"河北",value:102},
-    {name:"山西",value:81},
-    {name:"内蒙古",value:47},
-    {name:"辽宁",value:67},
-    {name:"吉林",value:82},
-    {name:"黑龙江",value:123},
-    {name:"上海",value:24},
-    {name:"江苏",value:92},
-    {name:"浙江",value:114},
-    {name:"安徽",value:109},
-    {name:"福建",value:116},
-    {name:"江西",value:91},
-    {name:"山东",value:119},
-    {name:"河南",value:137},
-    {name:"湖北",value:116},
-    {name:"湖南",value:114},
-    {name:"重庆",value:91},
-    {name:"四川",value:125},
-    {name:"贵州",value:62},
-    {name:"云南",value:83},
-    {name:"西藏",value:9},
-    {name:"陕西",value:80},
-    {name:"甘肃",value:56},
-    {name:"青海",value:10},
-    {name:"宁夏",value:18},
-    {name:"新疆",value:180},
-    {name:"广东",value:123},
-    {name:"广西",value:59},
-    {name:"海南",value:14},
+      {name:"北京",value:-199},
+      {name:"天津",value:-42},
+      {name:"河北",value:-102},
+      {name:"山西",value:-81},
+      {name:"内蒙古",value:-47},
+      {name:"辽宁",value:-67},
+      {name:"吉林",value:-82},
+      {name:"黑龙江",value:-123},
+      {name:"上海",value:-24},
+      {name:"江苏",value:92},
+      {name:"浙江",value:114},
+      // {name:"安徽",value:109},
+      {name:"福建",value:116},
+      {name:"江西",value:91},
+      {name:"山东",value:119},
+      {name:"河南",value:137},
+      // {name:"湖北",value:116},
+      {name:"湖南",value:114},
+      {name:"重庆",value:91},
+      {name:"四川",value:125},
+      {name:"贵州",value:62},
+      {name:"云南",value:0},
+      {name:"西藏",value:0},
+      {name:"陕西",value:0},
+      // {name:"甘肃",value:0},
+      {name:"青海",value:0},
+      {name:"宁夏",value:0},
+      {name:"新疆",value:0},
+      {name:"广东",value:0},
+      {name:"广西",value:0},
+      {name:"海南",value:0},
     ];
-   var max = 480, min = 9; // todo 
-    var maxSize4Pin = 100, minSize4Pin = 20;
-
-  var convertData = function (data) {
-    var res = [];
-    for (var i = 0; i < data.length; i++) {
-        var geoCoord = geoCoordMap[data[i].name];
-        if (geoCoord) {
-            res.push({
-                name: data[i].name,
-                value: geoCoord.concat(data[i].value)
-            });
+    var convertData = function (data) {
+        var res = [];
+        for (var i = 0; i < data.length; i++) {
+            var geoCoord = geoCoordMap[data[i].name];
+            if (geoCoord) {
+                res.push({
+                    name: data[i].name,
+                    value: geoCoord.concat(data[i].value)
+                });
+            }
         }
-    }
-    return res;
-};
+        return res;
+    };
 
-
-
-    option = {
+    var option = {
         backgroundColor: {
-        type: 'linear',
-        x: 0,
-        y: 0,
-        x2: 1,
-        y2: 1,
-        colorStops: [{
-            offset: 0, color: '#0f378f' // 0% 处的颜色
-        }, {
-            offset: 1, color: '#00091a' // 100% 处的颜色
-        }],
-        globalCoord: false // 缺省为 false
-    },
-        title: {
-            top:20,
-            text: '“会员活跃度” - 山东省',
-            subtext: '',
-            x: 'center',
-            textStyle: {
-                color: '#ccc'
-            }
-        },    
-
-       tooltip: {
-            trigger: 'item',
-            formatter: function (params) {
-              if(typeof(params.value)[2] == "undefined"){
-              	return params.name + ' : ' + params.value;
-              }else{
-              	return params.name + ' : ' + params.value[2];
-              }
-            }
+          type: 'linear',
+          x: 0,
+          y: 0,
+          x2: 1,
+          y2: 1,
+          colorStops: [{
+              offset: 0, color: '#0f378f' // 0% 处的颜色
+          }, {
+              offset: 1, color: '#00091a' // 100% 处的颜色
+          }],
+          globalCoord: false // 缺省为 false
         },
-     /*   legend: {
-            orient: 'vertical',
-            y: 'bottom',
-            x: 'right',
-             data:['pm2.5'],
-            textStyle: {
-                color: '#fff'
-            }
-        },*/
-            legend: {
-        orient: 'vertical',
-        y: 'bottom',
-        x:'right',
-        data:['pm2.5'],
-        textStyle: {
-            color: '#fff'
-        }
-    }, 
+        legend: {
+          orient: 'vertical',
+          y: 'bottom',
+          x:'right',
+          data:['pm2.5'],
+          textStyle: {
+              color: '#fff'
+          }
+        }, 
         visualMap: {
             show: false,
             min: 0,
@@ -166,24 +132,24 @@ $.getJSON(uploadedDataURL, function(geoJson) {
               max: 3,
             },
             label: {
-				normal: {
-					show: false
-				},
-				emphasis: {
-					show: false,
-				}
-			},
-            itemStyle: {
-                normal: {
-                    areaColor: '#3a7fd5',
-                    borderColor: '#0a53e9',//线
-                    shadowColor: '#092f8f',//外发光
-                    shadowBlur: 20
-                },
-				 emphasis: {
-                    areaColor: '#0a2dae',//悬浮区背景
-                }
+            normal: {
+              show: false
+            },
+            emphasis: {
+              show: false,
             }
+		    	},
+          itemStyle: {
+            normal: {
+              areaColor: '#3a7fd5',
+              borderColor: '#0a53e9',//线
+              shadowColor: '#092f8f',//外发光
+              shadowBlur: 20
+            },
+				    emphasis: {
+              areaColor: '#0a2dae',//悬浮区背景
+            }
+          }
         },
         series : [{
             type: 'lines',
@@ -200,8 +166,7 @@ $.getJSON(uploadedDataURL, function(geoJson) {
               }
             }
           },
-      {
-         
+        {
             symbolSize: 5,
             label: {
                 normal: {
@@ -253,37 +218,6 @@ $.getJSON(uploadedDataURL, function(geoJson) {
             },
             animation: false,
             data: data
-        },
-        {
-            name: 'Top 5',
-            type: 'scatter',
-            coordinateSystem: 'geo',
-            symbol: 'pin',
-            symbolSize: [50,50],
-            label: {
-                normal: {
-                    show: true,
-                    textStyle: {
-                        color: '#fff',
-                        fontSize: 9,
-                    },
-                    formatter (value){
-                        return value.data.value[2]
-                    }
-                }
-            },
-            itemStyle: {
-                normal: {
-                    color: '#D8BC37', //标志颜色
-                }
-            },
-            data: convertData(data),
-            showEffectOn: 'render',
-            rippleEffect: {
-                brushType: 'stroke'
-            },
-            hoverAnimation: true,
-            zlevel: 1
         },
     ]};
     console.time('setOption');
