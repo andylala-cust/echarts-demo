@@ -170,58 +170,45 @@ $.getJSON(uploadedDataURL, function(geoJson) {
                     borderColor: '#fff',
                     borderWidth: 1.5
                 }, 
-                // normal: {
-                //     areaColor: '#e8eff8',
-                //     borderColor: '#fff',
-                //     borderWidth: 1.5
-                // }
+                normal: {
+                    areaColor: '#e8eff8',
+                    borderColor: '#fff',
+                    borderWidth: 1.5
+                }
             },
+            regions: colorData(data)
         },
         series: [
-            {
-                type: 'map',
-                map: 'china',
-                geoIndex: 0,
-                aspectScale: 0.75, //长宽比
-                showLegendSymbol: false, // 存在legend时显示
-                label: {
-                    normal: {
-                        show: false
-                    },
-                    emphasis: {
-                        show: false,
-                        textStyle: {
-                            color: '#fff'
-                        }
-                    }
-                },
-                roam: true,
-                itemStyle: {
-                    normal: {
-                        areaColor: '#031525',
-                        borderColor: '#FFFFFF',
-                    },
-                    emphasis: {
-                        areaColor: '#2B91B7'
-                    }
-                },
-                animation: false,
-                data: data
-            }, {
-                type: 'lines',
-                zLevel: 10,
-                silent: true,
-                animation: true,
-                animationDuration: 200,
-                lineStyle: {
-                    normal: {
-                    type: 'dashed',
-                    width: 2,
-                    color: '#fff',
-                    opacity: 1
-                    }
-                }
-            }
+            // {
+            //     type: 'map',
+            //     map: 'china',
+            //     geoIndex: 0,
+            //     aspectScale: 0.75, //长宽比
+            //     showLegendSymbol: false, // 存在legend时显示
+            //     label: {
+            //         normal: {
+            //             show: false
+            //         },
+            //         emphasis: {
+            //             show: false,
+            //             textStyle: {
+            //                 color: '#fff'
+            //             }
+            //         }
+            //     },
+            //     roam: true,
+            //     itemStyle: {
+            //         normal: {
+            //             areaColor: '#031525',
+            //             borderColor: '#FFFFFF',
+            //         },
+            //         emphasis: {
+            //             areaColor: '#2B91B7'
+            //         }
+            //     },
+            //     animation: false,
+            //     data: data
+            // }
         ]
     };
     myChart.setOption(option);
