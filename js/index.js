@@ -95,6 +95,9 @@ const convertData = function (data) {
   }
   return res;
 };
+
+console.log('convertData', convertData(mapData));
+
 $.getJSON(uploadedDataURL, function(geoJson) {
   echarts.registerMap('china', geoJson);
   const options = {
