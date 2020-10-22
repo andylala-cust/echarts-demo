@@ -1,5 +1,5 @@
-const uploadedDataURL = "assets/data.json";
-const geoCoordMap = {
+var uploadedDataURL = "assets/data.json";
+var geoCoordMap = {
   '台湾': [121.5135,25.0308],
   '黑龙江': [127.9688, 45.368],
   '内蒙古': [110.3467, 41.4899],
@@ -34,7 +34,7 @@ const geoCoordMap = {
   '上海': [121.4648, 31.2891],
   
 };
-const mapData = [
+var mapData = [
   {name:"北京",value:-199},
   {name:"天津",value:-42},
   {name:"河北",value:-102},
@@ -68,7 +68,7 @@ const mapData = [
   {name:"海南",value:0},
 ];
 
-const colorData = function(data) {
+var colorData = function(data) {
   return data.map(item => ({
     ...item,
     itemStyle: {
@@ -79,10 +79,10 @@ const colorData = function(data) {
         areaColor: item.value > 0 ? '#f06f6f' : (item.value < 0 ? '#4db84d' : '#7eb2f3')
       }
     }
-  }), [])
+  }))
 }
 
-const convertData = function (data) {
+var convertData = function (data) {
   var res = [];
   for (var i = 0; i < data.length; i++) {
       var geoCoord = geoCoordMap[data[i].name];
@@ -100,7 +100,7 @@ console.log('convertData', convertData(mapData));
 
 $.getJSON(uploadedDataURL, function(geoJson) {
   echarts.registerMap('china', geoJson);
-  const options = {
+  var options = {
     geo: [{
       map: 'china',
       roam: 'move',
@@ -160,7 +160,7 @@ $.getJSON(uploadedDataURL, function(geoJson) {
       }]
     }
   };
-  const mapInstance = echarts.init(document.getElementById('canvas-wrapper'));
+  var mapInstance = echarts.init(document.getElementById('canvas-wrapper'));
   console.time('setOption');
   mapInstance.setOption(options);
   console.timeEnd('setOption');
